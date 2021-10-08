@@ -77,12 +77,7 @@ public class Word implements Comparable<Word> {
 
     public static void main(String[] args) throws IOException {
 
-        DictionaryManagement alo = new DictionaryManagement();
-        alo.insertFromFile();
-
         Dictionary newList = new Dictionary();
-        newList.add(alo.words);
-        newList.sort();
 
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();

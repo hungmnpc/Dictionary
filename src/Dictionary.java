@@ -1,14 +1,22 @@
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Dictionary {
     ArrayList<Word> words;
 
+    DictionaryManagement dictionaryManagement;
+
     /**
      * contructor.
      */
-    public Dictionary() {
+    public Dictionary() throws IOException {
         words = new ArrayList<>();
+        dictionaryManagement = new DictionaryManagement();
+        dictionaryManagement.insertFromFile();
+
+        this.add(dictionaryManagement.words);
+        this.sort();
     }
 
     public void add(Word newWord) {
@@ -34,13 +42,15 @@ public class Dictionary {
             if (words.get(i).getWord_target().substring(0,
                     Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
                 int j = i;
-                while (words.get(i).getWord_target().substring(0, s.length()).equalsIgnoreCase(s)) {
+                while (words.get(i).getWord_target().substring(0,
+                        Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
                     i--;
                     if (i < 0) {
                         break;
                     }
                 }
-                while (words.get(j).getWord_target().substring(0, s.length()).equalsIgnoreCase(s)) {
+                while (words.get(j).getWord_target().substring(0,
+                        Math.min(words.get(j).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
                     j++;
                     if (j > words.size() - 1) {
                         break;
