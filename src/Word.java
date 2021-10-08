@@ -1,7 +1,29 @@
-public class Word {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Word implements Comparable<Word> {
     private String word_target;
-    private String word_explain;
     private String word_pronounce;
+    private String word_explain;
+
+    @Override
+    public int compareTo(Word s) {
+        return this.getWord_target().compareTo(s.getWord_target());
+    }
+
+    public Word() {
+        word_target = "";
+        word_pronounce = "";
+        word_explain = "";
+    }
+
+    public Word(String s1, String s2, String s3) {
+        word_target = s1;
+        word_pronounce = s2;
+        word_explain = s3;
+    }
+
 
     /**
      * set Word_target.
@@ -53,24 +75,27 @@ public class Word {
         return String.format("\t%s\t\t|\t\t%s\t\t|\t\t%s", getWord_target(), getWord_pronounce(), getWord_explain());
     }
 
-    public static void main(String[] args) {
-        Word hello = new Word();
-        hello.setWord_target("Hello");
-        hello.setWord_explain("Xin chào");
-        hello.setWord_pronounce("/həˈləʊ/");
-
-        Word apple  = new Word();
-        apple.setWord_target("apple ");
-        apple.setWord_explain("Quả táo");
-        apple.setWord_pronounce("/ˈæpl/");
+    public static void main(String[] args) throws IOException {
 
         DictionaryManagement alo = new DictionaryManagement();
-        alo.insertFromCommandline();
+        alo.insertFromFile();
 
         Dictionary newList = new Dictionary();
-        newList.add(hello);
-        newList.add(apple);
-        newList.show();
+        newList.add(alo.words);
+        newList.sort();
+
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+
+        ArrayList<Integer> list = newList.dictionarySearcher(s);
+        if (list != null) {
+            newList.show(list.get(0), list.get(1));
+        } else {
+            System.out.println("Hung dbrr");
+        }
+
+
+        //newList.show();
     }
 
 }
