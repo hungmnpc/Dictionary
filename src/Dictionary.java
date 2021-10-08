@@ -31,7 +31,8 @@ public class Dictionary {
         while (l <= r) {
             int i = (l + r) / 2;
 
-            if (words.get(i).getWord_target().substring(0, s.length()).equalsIgnoreCase(s)) {
+            if (words.get(i).getWord_target().substring(0,
+                    Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
                 int j = i;
                 while (words.get(i).getWord_target().substring(0, s.length()).equalsIgnoreCase(s)) {
                     i--;
