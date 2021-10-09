@@ -1,0 +1,30 @@
+.input {
+    -fx-font-family : 'Comic Sans MS', sans-serif;
+    -fx-font-size : 30px;
+    -fx-text-fill : #696969;
+    -fx-background-radius : 20;
+    -fx-border-radius : 20;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.button_search {
+    -fx-color: #3E00FF;
+    -fx-text-fill : white;
+    -fx-font-size : 30px;
+}
+
+.button_search:hover {
+    -fx-color: #3DB2FF;
+}
+
+.button_search:pressed {
+  -fx-color : #3E00FF;
+}
+
+.layout {
+    -fx-background-color:red;
+    -fx-border-width: 5px;
+    -fx-border-color: red;
+}
+
+

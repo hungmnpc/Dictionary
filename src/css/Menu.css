@@ -1,0 +1,28 @@
+.button {
+    -fx-min-width: 200px;
+    -fx-min-height: 80px;
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+    -fx-font-size: 25px;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-transition: 0.5s;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #5C7AEA;
+}
+
+.btn-selected {
+    -fx-background-color: #FF7777;
+    -fx-min-width: 300px;
+    -fx-text-fill: black;
+    -fx-background-radius: 0 20px 20px 0;
+    -fx-border-radius: 0 20px 20px 0;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.root {
+    -fx-background-color:transparent;
+}
+

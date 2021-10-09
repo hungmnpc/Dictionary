@@ -1,0 +1,9 @@
+.button {
+     -fx-font-family : 'Comic Sans MS', sans-serif;
+     -fx-background-radius: 1000px;
+     -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+     -fx-cursor: hand;
+     -fx-font-size: 30px;
+     -fx-background-color: linear-gradient(to bottom, white 5%, -fx-color);
+}
+

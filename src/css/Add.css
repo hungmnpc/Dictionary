@@ -1,0 +1,36 @@
+.root {
+    -fx-background-color: #3DB2FF;
+}
+
+.label1 {
+    -fx-font-family : "Comic Sans MS", sans-serif;
+    -fx-font-size : 25;
+    -fx-font-weight: 700;
+}
+
+.input {
+    -fx-min-width: 400px;
+    -fx-min-height: 50px;
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+    -fx-font-size : 25px;
+    -fx-background-radius : 10px;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+    -fx-text-fill: #3DB2FF;
+}
+
+.input:focused {
+    -fx-text-fill : #2C2891;
+    -fx-background-insets: -4, 0, 1;
+}
+
+.button {
+    -fx-min-width: 150px;
+    -fx-color: #6ECB63;
+}
+.button:hover {
+    -fx-color: #B1E693;
+}
+
+.button:pressed {
+    -fx-color: #6ECB63;
+}

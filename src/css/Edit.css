@@ -1,0 +1,21 @@
+.input {
+    -fx-min-width: 400px;
+    -fx-min-height: 50px;
+    -fx-font-size: 30px;
+}
+
+.root {
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+}
+
+.heading {
+    -fx-font-size: 25px;
+}
+
+.button {
+    -fx-color: #B05B3B;
+}
+
+.button:pressed {
+    -fx-color: #753422  ;
+}

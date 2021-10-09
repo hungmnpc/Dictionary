@@ -1,0 +1,37 @@
+.input {
+    -fx-min-width: 600px;
+    -fx-min-height: 50px;
+    -fx-font-size: 30px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.input:focused {
+    -fx-background-insets: -4, 0, 1;
+}
+
+.heading{
+    -fx-font-size: 25px;
+
+}
+
+.button {
+    -fx-min-width: 150px;
+    -fx-min-height: 50px;
+    -fx-color: #B42B51;
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+
+}
+
+.button:pressed {
+    -fx-color: #7D1935  !important ;
+}
+
+.button:hover {
+    -fx-color: #E63E6D ;
+}
+
+.root {
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+}
