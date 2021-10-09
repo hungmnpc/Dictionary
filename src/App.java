@@ -2,6 +2,8 @@ import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class App extends Application {
 
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class App extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Dictionary");
         SceneSearch scene1 = new SceneSearch();
         SceneAdd scene2 = new SceneAdd();
@@ -20,6 +22,7 @@ public class App extends Application {
         scene1.addMenu(menu);
         menu.addClassSelected(menu.getBtn_search());
         primaryStage.getIcons().add(new Image("file:src/image/logo.png"));
+        Dictionary dictionary = new Dictionary();
 
         menu.getBtn_search().setOnAction(event -> {
             if (!primaryStage.getScene().equals(scene1.getScene())) {

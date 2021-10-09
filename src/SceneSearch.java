@@ -8,6 +8,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 
 public class SceneSearch {
     private final Scene scene_search;
@@ -17,7 +20,7 @@ public class SceneSearch {
     private String word_search;
     private Group layout;
 
-    public SceneSearch() {
+    public SceneSearch() throws IOException {
         this.root = new Group();
         this.layout = new Group();
         scene_search = new Scene(root, 1200, 800, Color.web("#3DB2FF", 1));
@@ -26,10 +29,11 @@ public class SceneSearch {
         layout.getChildren().addAll(this.getInput_search(), this.getBtn_search());
         root.getChildren().addAll(layout, new Border().getBorder());
         layout.getStyleClass().add("layout");
+        Dictionary dictionary = new Dictionary();
 
         clickBtnHandler();
 
-        getSearchWordByKey();
+        getSearchWordByKey(dictionary);
 
         this.scene_search.getStylesheets().add("css/Search.css");
     }
@@ -92,17 +96,25 @@ public class SceneSearch {
         });
     }
 
-    private void getSearchWordByKey() {
+    private void getSearchWordByKey(Dictionary dictionary) {
         input_search.setOnKeyReleased( event -> {
             if (event.getCode() == KeyCode.ENTER){
                 btn_search.requestFocus();
                 if (!input_search.getText().isEmpty()) {
                     word_search = input_search.getText();
                     System.out.println(word_search);
+                    ArrayList<Integer> list = dictionary.dictionarySearcher(this.word_search);
+                    if (list != null) {
+                        dictionary.show(list.get(0), list.get(1));
+                    } else {
+                        System.out.println("Hung dbrr");
+                    }
                 }
 
             }
         });
+
+
 
     }
 
