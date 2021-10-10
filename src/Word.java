@@ -1,7 +1,3 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Word implements Comparable<Word> {
     private String word_target;
     private String word_pronounce;

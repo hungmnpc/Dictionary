@@ -42,12 +42,13 @@ public class DictionaryManagement {
         file.close();
     }
 
-    public void insetFromCommandline(){
+    public void insetFromCommandline(String s1, String s2, String s3, Dictionary dictionary){
         Scanner scanner = new Scanner(System.in);
-        String s1 = scanner.nextLine();
-        String s2 = scanner.nextLine();
-        Word word = new Word(s1,"",s2);
-        words.add(word);
+//        String s1 = scanner.nextLine();
+//        String s2 = scanner.nextLine();
+//        String s3 = scanner.nextLine();
+        Word word = new Word(s1, s2, s3);
+        dictionary.words.add(word);
 
     }
 }
