@@ -1,4 +1,6 @@
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,6 +17,7 @@ public class Dictionary {
         dictionaryManagement = new DictionaryManagement();
         dictionaryManagement.insertFromFile();
 
+        //dictionaryManagement.dictionaryExportToFile();
         this.add(dictionaryManagement.words);
         this.sort();
     }
@@ -71,6 +74,17 @@ public class Dictionary {
         return null;
         //return new ArrayList<>(-1);
 
+    }
+
+    public void insetFromCommandline(String s1, String s2, String s3) throws IOException {
+        Word word = new Word(s1, s2, s3);
+        words.add(word);
+        this.sort();
+
+        File file = new File(dictionaryManagement.getData_url());
+        FileWriter fw = new FileWriter(file,true);
+        fw.write("\n" + s1 + "|" + s2 + "|" + s3);
+        fw.close();
     }
 
     public void show() {

@@ -17,6 +17,10 @@ public class DictionaryManagement {
 
     private final static String data_url = "dictionaries.txt";
 
+    public String getData_url() {
+        return data_url;
+    }
+
     public void insertFromFile() throws IOException {
 
         FileReader file = new FileReader(data_url);
@@ -42,13 +46,12 @@ public class DictionaryManagement {
         file.close();
     }
 
-    public void insetFromCommandline(String s1, String s2, String s3, Dictionary dictionary){
-        Scanner scanner = new Scanner(System.in);
+//    public void insetFromCommandline(){
+//        Scanner scanner = new Scanner(System.in);
 //        String s1 = scanner.nextLine();
 //        String s2 = scanner.nextLine();
-//        String s3 = scanner.nextLine();
-        Word word = new Word(s1, s2, s3);
-        dictionary.words.add(word);
-
-    }
+//        Word word = new Word(s1,"",s2);
+//        words.add(word);
+//
+//    }
 }

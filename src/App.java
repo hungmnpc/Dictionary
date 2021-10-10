@@ -15,7 +15,7 @@ public class App extends Application {
         primaryStage.setTitle("Dictionary");
 
         Dictionary dictionary = new Dictionary();
-        dictionary.dictionaryManagement.insetFromCommandline("game", "/ɡeɪm/", "trò chơi", dictionary);
+        dictionary.insetFromCommandline("game", "/ɡeɪm/", "trò chơi");
         dictionary.add(dictionary.dictionaryManagement.words);
 
         SceneSearch scene1 = new SceneSearch(dictionary);
