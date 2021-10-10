@@ -13,7 +13,10 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Dictionary");
-        SceneSearch scene1 = new SceneSearch();
+
+        Dictionary dictionary = new Dictionary();
+
+        SceneSearch scene1 = new SceneSearch(dictionary);
         SceneAdd scene2 = new SceneAdd();
         SceneDelete scene3 =new SceneDelete();
         SceneEdit scene4 = new SceneEdit();
@@ -22,7 +25,6 @@ public class App extends Application {
         scene1.addMenu(menu);
         menu.addClassSelected(menu.getBtn_search());
         primaryStage.getIcons().add(new Image("file:src/image/logo.png"));
-        Dictionary dictionary = new Dictionary();
 
         menu.getBtn_search().setOnAction(event -> {
             if (!primaryStage.getScene().equals(scene1.getScene())) {

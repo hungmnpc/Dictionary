@@ -79,10 +79,14 @@ public class Dictionary {
         }
     }
 
-    public void show(int a, int b) {
+    public ArrayList<Word> getList(int a, int b) {
+        ArrayList<Word> list = new ArrayList<>();
         for (int i = a; i <= b; i++) {
+            list.add(words.get(i));
             System.out.println(words.get(i).getWord());
         }
+
+        return list;
     }
 
 }

@@ -1,0 +1,16 @@
+.root {
+    -fx-font-family: "Comic Sans MS", sans-serif;
+    -fx-font-size: 25px;
+    -fx-background-color: #3DB2FF;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: red;
+
+}
+
+.text-target {
+    -fx-text-fill: red;
+}
+
+.text-pronounce {
+    -fx-text-fill: #E02401;
+}

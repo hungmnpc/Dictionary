@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -19,21 +21,24 @@ public class SceneSearch {
     private Button btn_search;
     private String word_search;
     private Group layout;
+    private Group layout2;
 
-    public SceneSearch() throws IOException {
+
+    public SceneSearch(Dictionary dictionary) throws IOException {
         this.root = new Group();
         this.layout = new Group();
+        this.layout2 = new Group();
         scene_search = new Scene(root, 1200, 800, Color.web("#3DB2FF", 1));
         this.word_search = "";
         setLayout();
         layout.getChildren().addAll(this.getInput_search(), this.getBtn_search());
-        root.getChildren().addAll(layout, new Border().getBorder());
+        root.getChildren().addAll(layout, new Border().getBorder(), layout2);
         layout.getStyleClass().add("layout");
-        Dictionary dictionary = new Dictionary();
+
 
         clickBtnHandler();
-
         getSearchWordByKey(dictionary);
+
 
         this.scene_search.getStylesheets().add("css/Search.css");
     }
@@ -99,13 +104,17 @@ public class SceneSearch {
     private void getSearchWordByKey(Dictionary dictionary) {
         input_search.setOnKeyReleased( event -> {
             if (event.getCode() == KeyCode.ENTER){
+                layout2.getChildren().clear();
                 btn_search.requestFocus();
                 if (!input_search.getText().isEmpty()) {
                     word_search = input_search.getText();
                     System.out.println(word_search);
                     ArrayList<Integer> list = dictionary.dictionarySearcher(this.word_search);
                     if (list != null) {
-                        dictionary.show(list.get(0), list.get(1));
+                        ArrayList<Word> listWord = dictionary.getList(list.get(0), list.get(1));
+
+                        FormSearch form = new FormSearch(listWord);
+                        layout2.getChildren().add(form.getLayout());
                     } else {
                         System.out.println("Hung dbrr");
                     }
