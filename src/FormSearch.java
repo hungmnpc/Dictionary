@@ -32,11 +32,8 @@ public class FormSearch {
 
     private void setLayout() {
         layout.getChildren().addAll(item);
-        layout.setMinWidth(700);
-        layout.setMinHeight(600);
         scroller.setLayoutX(400);
         scroller.setLayoutY(170);
-
     }
 
     private void setRoot() {
