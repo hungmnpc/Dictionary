@@ -87,6 +87,28 @@ public class Dictionary {
         fw.close();
     }
 
+    public void delete(String s) throws IOException {
+        ArrayList<Integer> list = dictionarySearcher(s);
+        if (list != null) {
+            if (words.get(list.get(0)).getWord_target().equals(s)) {
+                System.out.println("Deleted");
+
+                words.remove((int) list.get(0));
+                FileWriter file = new FileWriter(dictionaryManagement.getData_url());
+                file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
+                        "|" + words.get(0).getWord_explain());
+                for (int i = 1; i < words.size(); i++) {
+                    file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
+                            "|" + words.get(i).getWord_explain());
+                }
+                file.close();
+                return;
+            }
+        }
+
+        System.out.println("Not have word " + s);
+    }
+
     public void show() {
         for (Word v : words) {
             System.out.println(v.getWord());
