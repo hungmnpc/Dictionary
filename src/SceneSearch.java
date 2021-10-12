@@ -97,10 +97,8 @@ public class SceneSearch {
                 if (!input_search.getText().isEmpty()){
                     word_search = input_search.getText();
                     System.out.println(input_search.getText());
-                    ArrayList<Integer> list = dictionary.dictionarySearcher(word_search);
-                    if (list != null) {
-                        ArrayList<Word> listWord = dictionary.getList(list.get(0), list.get(1));
-
+                    ArrayList<Word> listWord = dictionary.getListWordSearch(word_search);
+                    if (listWord != null) {
                         FormSearch form = new FormSearch(listWord);
                         layout2.getChildren().add(form.getLayout());
                     } else {
@@ -119,10 +117,8 @@ public class SceneSearch {
                 if (!input_search.getText().isEmpty()) {
                     word_search = input_search.getText();
                     System.out.println(word_search);
-                    ArrayList<Integer> list = dictionary.dictionarySearcher(this.word_search);
-                    if (list != null) {
-                        ArrayList<Word> listWord = dictionary.getList(list.get(0), list.get(1));
-
+                    ArrayList<Word> listWord = dictionary.getListWordSearch(this.word_search);
+                    if (listWord != null) {
                         FormSearch form = new FormSearch(listWord);
                         layout2.getChildren().add(form.getLayout());
                     } else {

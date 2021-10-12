@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dictionary {
     ArrayList<Word> words;
@@ -34,7 +35,7 @@ public class Dictionary {
         words.sort(Word::compareTo);
     }
 
-    public ArrayList<Integer> dictionarySearcher(String s) {
+    private ArrayList<Integer> dictionarySearcher(String s) {
         ArrayList<Integer> list = new ArrayList<>();
         int l = 0;
         int r = words.size() - 1;
@@ -115,14 +116,20 @@ public class Dictionary {
         }
     }
 
-    public ArrayList<Word> getList(int a, int b) {
-        ArrayList<Word> list = new ArrayList<>();
-        for (int i = a; i <= b; i++) {
-            list.add(words.get(i));
-            System.out.println(words.get(i).getWord());
+    public ArrayList<Word> getListWordSearch(String s) {
+        ArrayList<Integer> index =  dictionarySearcher(s);
+        if (index != null) {
+            int a = index.get(0);
+            int b = index.get(1);
+            ArrayList<Word> list = new ArrayList<>();
+            for (int i = a; i <= b; i++) {
+                list.add(words.get(i));
+                System.out.println(words.get(i).getWord());
+            }
+            return list;
+        } else {
+            return null;
         }
-
-        return list;
     }
 
 }
