@@ -54,11 +54,11 @@ public class SceneAdd {
         this.layout.setLayoutX(400);
         this.layout.setLayoutY(100);
         GridPane.setConstraints(input_new_word, 1, 0);
-        GridPane.setConstraints(input_word_explain, 1, 1);
-        GridPane.setConstraints(input_pronunciation, 1, 2);
+        GridPane.setConstraints(input_word_explain, 1, 2);
+        GridPane.setConstraints(input_pronunciation, 1, 1);
         GridPane.setConstraints(word, 0, 0);
-        GridPane.setConstraints(word_explain, 0, 1);
-        GridPane.setConstraints(pronunciation, 0, 2);
+        GridPane.setConstraints(word_explain, 0, 2);
+        GridPane.setConstraints(pronunciation, 0, 1);
         GridPane.setConstraints(button,1, 3);
 
     }
