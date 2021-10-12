@@ -23,6 +23,7 @@ public class SceneAdd {
     private  TextField input_pronunciation = new TextField();
     private Button button = new Button();
     private final Group root1 = new Group();
+    private AlertAdd alertAdd = new AlertAdd();
 
     public SceneAdd(Dictionary dictionary) {
         this.layout = new GridPane();
@@ -90,6 +91,12 @@ public class SceneAdd {
 
     }
 
+    private void setEmptyInput() {
+        input_new_word.setText(null);
+        input_pronunciation.setText(null);
+        input_word_explain.setText(null);
+    }
+
     private void setBtn_confirm() {
         button.setText("Add");
         button.getStyleClass().add("button");
@@ -132,18 +139,24 @@ public class SceneAdd {
             if (!input_new_word.getText().isEmpty()) {
                 if (!input_word_explain.getText().isEmpty()) {
                     if (!input_pronunciation.getText().isEmpty()) {
-                        Alert alert = new AlertAdd().getAlert_confirm();
+                        Alert alert = alertAdd.getAlert_confirm();
+                        Alert alert1 = alertAdd.getAlert_information();
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                             try {
                                 dictionary.insertNewWord(input_new_word.getText(),  input_pronunciation.getText()
                                         , input_word_explain.getText());
+
+                                alert1.setContentText("Add successfully!");
+                                setEmptyInput();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         } else {
+                            alert1.setContentText("Add fail!");
                             System.out.println("không thành công");
                         }
+                        alert1.show();
 
                     }
                 }
