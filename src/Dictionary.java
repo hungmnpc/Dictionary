@@ -76,7 +76,7 @@ public class Dictionary {
 
     }
 
-    public void insetFromCommandline(String s1, String s2, String s3) throws IOException {
+    public void insertNewWord(String s1, String s2, String s3) throws IOException {
         Word word = new Word(s1, s2, s3);
         words.add(word);
         this.sort();

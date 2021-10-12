@@ -11,6 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
+import java.io.IOException;
+
 public class SceneAdd {
 
     private final Scene scene_add;
@@ -24,7 +26,7 @@ public class SceneAdd {
     private Button button = new Button();
     private final Group root1 = new Group();
 
-    public SceneAdd() {
+    public SceneAdd(Dictionary dictionary) {
         this.layout = new GridPane();
         this.scene_add = new Scene(root1, 1200, 800, Color.web("#3DB2FF", 1));
         setLayout();
@@ -41,6 +43,7 @@ public class SceneAdd {
         root1.getChildren().addAll(layout, new Border().getBorder());
         scene_add.getStylesheets().add("css/Add.css");
         eventHandler();
+        addNewWord(dictionary);
 
     }
 
@@ -124,6 +127,23 @@ public class SceneAdd {
             });
 
 
+    }
+
+    private void addNewWord(Dictionary dictionary) {
+        this.button.setOnAction(event -> {
+            if (!input_new_word.getText().isEmpty()) {
+                if (!input_word_explain.getText().isEmpty()) {
+                    if (!input_pronunciation.getText().isEmpty()) {
+                        try {
+                            dictionary.insertNewWord(input_new_word.getText(),  input_pronunciation.getText()
+                            , input_word_explain.getText());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
     }
 
 

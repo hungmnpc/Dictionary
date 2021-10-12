@@ -17,7 +17,7 @@ public class App extends Application {
         Dictionary dictionary = new Dictionary();
 
         SceneSearch scene1 = new SceneSearch(dictionary);
-        SceneAdd scene2 = new SceneAdd();
+        SceneAdd scene2 = new SceneAdd(dictionary);
         SceneDelete scene3 =new SceneDelete();
         SceneEdit scene4 = new SceneEdit();
         Menu menu = new Menu();

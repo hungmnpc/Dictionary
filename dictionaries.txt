@@ -12,3 +12,5 @@ blood|/blad/|máu
 blow|/bləu/|cú đánh
 balloon|/bəˈluːn/|bóng, khí cầu, kinh khí cầu
 abbreviated|/ə'bri:vietid/|tóm tắt; viết tắt; rút ngắn lại; ngắn cũn cỡn (quần áo...)
+game|/ɡeɪm/|trò chơi
+video game|/ˈvɪ.di.ˌoʊ ɡeɪm/|trò chơi điện tử
