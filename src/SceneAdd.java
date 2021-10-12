@@ -2,16 +2,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class SceneAdd {
 
@@ -134,12 +132,19 @@ public class SceneAdd {
             if (!input_new_word.getText().isEmpty()) {
                 if (!input_word_explain.getText().isEmpty()) {
                     if (!input_pronunciation.getText().isEmpty()) {
-                        try {
-                            dictionary.insertNewWord(input_new_word.getText(),  input_pronunciation.getText()
-                            , input_word_explain.getText());
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        Alert alert = new AlertAdd().getAlert_confirm();
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
+                            try {
+                                dictionary.insertNewWord(input_new_word.getText(),  input_pronunciation.getText()
+                                        , input_word_explain.getText());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.out.println("không thành công");
                         }
+
                     }
                 }
             }
