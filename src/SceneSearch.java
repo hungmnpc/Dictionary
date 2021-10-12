@@ -36,7 +36,7 @@ public class SceneSearch {
         layout.getStyleClass().add("layout");
 
 
-        clickBtnHandler();
+        clickBtnHandler(dictionary);
         getSearchWordByKey(dictionary);
 
 
@@ -89,13 +89,23 @@ public class SceneSearch {
         }
     }
 
-    private void clickBtnHandler() {
+    private void clickBtnHandler(Dictionary dictionary) {
         this.btn_search.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                layout2.getChildren().clear();
                 if (!input_search.getText().isEmpty()){
                     word_search = input_search.getText();
                     System.out.println(input_search.getText());
+                    ArrayList<Integer> list = dictionary.dictionarySearcher(word_search);
+                    if (list != null) {
+                        ArrayList<Word> listWord = dictionary.getList(list.get(0), list.get(1));
+
+                        FormSearch form = new FormSearch(listWord);
+                        layout2.getChildren().add(form.getLayout());
+                    } else {
+                        System.out.println("Hung dbrr");
+                    }
                 }
             }
         });
