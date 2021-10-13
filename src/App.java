@@ -16,7 +16,7 @@ public class App extends Application {
 
         Dictionary dictionary = new Dictionary();
         //dictionary.insetFromCommandline("game", "/ɡeɪm/", "trò chơi");
-//        dictionary.delete("apple");
+//        dictionary.delete("a b c");
 
         SceneSearch scene1 = new SceneSearch(dictionary);
         SceneAdd scene2 = new SceneAdd(dictionary);
@@ -41,14 +41,6 @@ public class App extends Application {
                 primaryStage.setScene(scene2.getScene());
                 scene2.addMenu(menu);
                 menu.addClassSelected(menu.getBtn_add());
-            }
-        });
-
-        menu.getBtn_delete().setOnAction(event -> {
-            if (!primaryStage.getScene().equals(scene3.getScene())) {
-                primaryStage.setScene(scene3.getScene());
-                scene3.addMenu(menu);
-                menu.addClassSelected(menu.getBtn_delete());
             }
         });
 

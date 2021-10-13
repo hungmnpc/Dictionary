@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.text.TextAlignment;
 
 public class FormSearch {
-    private VBox layout = new VBox();
+    private VBox layout = new VBox(10);
     private ArrayList<VBox> item =  new ArrayList<>();
     private ScrollPane scroller;
 

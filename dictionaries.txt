@@ -1,9 +1,18 @@
+a b c - book|/'eibi:'si:buk/|sách vỡ lòng, sách học vần
+a la carte|/'ɑ:lɑ:'kɑ:t/|theo món, gọi theo món, đặt theo món
+a-power|/'ei'pauə/|năng lượng nguyên tử
+aasvogel|/'ɑ:sfougəl/|(động vật học) con kên kên (Nam Phi)
+aba|/'ɑ:bə/|áo aba (áo ngoài giống hình cái túi người A-Rập)
+abaddon|/ə'bædən/|âm ti, địa ngục, con quỷ
+abalone|/,æbə'louni/|(từ Mỹ,nghĩa Mỹ) bào ngư
+abatement|/ə'beitmənt/|sự dịu đi, sự yếu đi, sự nhụt đi, sự giảm bớt, sự đỡ, sự ngớt
+abbreviate|/ə'bri:vieit/|tóm tắt, viết tắt; rút ngắn lại (cuộc đi thăm...)
 balloon|/bəˈluːn/|bóng, khí cầu, kinh khí cầu
 blood|/blad/|máu
 blow|/bləu/|cú đánh
 game|/ɡeɪm/|trò chơi
-hero|/ˈhiərəu/|anh hùng
 hello|/həˈləʊ/|xin chào; biểu lộ sự ngạc nhiên
+hero|/ˈhiərəu/|anh hùng
 heroic|/hiˈrəuik/|anh dũng, dũng cảm
 heron|/ˈherən/|con diệc
 hey|/hei/|này
@@ -12,13 +21,3 @@ hiccup|/ˈhikap/|tiếng nấc
 high|/hai/|cao
 stupid|/ˈstjuːpid/|ngu dại, đần độn
 video game|/ˈvɪ.di.ˌoʊ ɡeɪm/|trò chơi điện tử
-a b c|/'eibi:'si:/|bảng chữ cái, khái niệm cơ sở, cơ sở
-a b c - book|/'eibi:'si:buk/|sách vỡ lòng, sách học vần
-a la carte|/'ɑ:lɑ:'kɑ:t/|theo món, gọi theo món, đặt theo món
-a-power|/'ei'pauə/|năng lượng nguyên tử
-aba|/'ɑ:bə/|áo aba (áo ngoài giống hình cái túi người A-Rập)
-aasvogel|/'ɑ:sfougəl/|(động vật học) con kên kên (Nam Phi)
-abalone|/,æbə'louni/|(từ Mỹ,nghĩa Mỹ) bào ngư
-abaddon|/ə'bædən/|âm ti, địa ngục, con quỷ
-abatement|/ə'beitmənt/|sự dịu đi, sự yếu đi, sự nhụt đi, sự giảm bớt, sự đỡ, sự ngớt
-abbreviate|/ə'bri:vieit/|tóm tắt, viết tắt; rút ngắn lại (cuộc đi thăm...)
