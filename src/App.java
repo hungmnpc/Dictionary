@@ -20,7 +20,6 @@ public class App extends Application {
 
         SceneSearch scene1 = new SceneSearch(dictionary);
         SceneAdd scene2 = new SceneAdd(dictionary);
-        SceneDelete scene3 =new SceneDelete();
         SceneEdit scene4 = new SceneEdit();
         Menu menu = new Menu();
         primaryStage.setScene(scene1.getScene());
