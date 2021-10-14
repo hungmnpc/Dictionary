@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class SceneEdit {
 
     private final TextField input = new TextField();
@@ -14,11 +17,12 @@ public class SceneEdit {
     private final Group root = new Group();
     private final Group layout = new Group();
 
-    public SceneEdit() {
+    public SceneEdit(Dictionary dictionary) {
         scene = new Scene(root, 1200, 800, Color.web("3DB2FF", 1));
         setLayout();
         root.getChildren().addAll(layout, new Border().getBorder());
         root.getStylesheets().add("css/Edit.css");
+        event(dictionary);
     }
 
     private void setLayout() {
@@ -49,6 +53,18 @@ public class SceneEdit {
     public void setHeading() {
         heading.setLayoutY(100);
         heading.getStyleClass().add("heading");
+    }
+
+    private void event(Dictionary dictionary) {
+        btn_1.setOnMouseClicked(event -> {
+            if (!input.getText().isEmpty()) {
+                String word = input.getText();
+                ArrayList<Word> list =  dictionary.getListWordSearch(word);
+                FormEdit form = new FormEdit(list.get(0));
+                root.getChildren().add(form.getLayout());
+
+            }
+        });
     }
 
     public Scene getScene() {

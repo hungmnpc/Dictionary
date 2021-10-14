@@ -15,12 +15,9 @@ public class App extends Application {
         primaryStage.setTitle("Dictionary");
 
         Dictionary dictionary = new Dictionary();
-        //dictionary.insetFromCommandline("game", "/ɡeɪm/", "trò chơi");
-//        dictionary.delete("a b c");
-
         SceneSearch scene1 = new SceneSearch(dictionary);
         SceneAdd scene2 = new SceneAdd(dictionary);
-        SceneEdit scene4 = new SceneEdit();
+        SceneEdit scene4 = new SceneEdit(dictionary);
         Menu menu = new Menu();
         primaryStage.setScene(scene1.getScene());
         scene1.addMenu(menu);

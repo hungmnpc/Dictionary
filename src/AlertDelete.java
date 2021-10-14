@@ -1,25 +1,21 @@
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 
-import java.util.Optional;
+public class AlertDelete {
+    private Alert alert_confirm = new Alert(Alert.AlertType.CONFIRMATION);
+    private Alert alert_information = new Alert(Alert.AlertType.INFORMATION);
 
-public class AlertAdd {
-    private Alert alert_confirm = new Alert(AlertType.CONFIRMATION);
-    private Alert alert_information = new Alert(AlertType.INFORMATION);
-
-    public AlertAdd() {
+    public AlertDelete() {
         setAlert_confirm();
         setAlert_information();
     }
 
     private void setAlert_confirm() {
         alert_confirm.setTitle("Confirmation");
-        alert_confirm.setHeaderText("Confirm add this word");
+        alert_confirm.setHeaderText("Confirm delete this word");
         alert_confirm.getButtonTypes().clear();
-        ButtonType buttonTypeConfirm = new ButtonType("Confirm",ButtonBar.ButtonData.OK_DONE);
+        ButtonType buttonTypeConfirm = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert_confirm.getButtonTypes().addAll(buttonTypeConfirm, buttonTypeCancel);
     }
@@ -36,5 +32,7 @@ public class AlertAdd {
     public Alert getAlert_information() {
         return this.alert_information;
     }
+
+
 
 }
