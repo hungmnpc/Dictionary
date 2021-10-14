@@ -13,6 +13,7 @@ public class FormEdit {
     private HBox layout = new HBox();
     private VBox layout_btn = new VBox();
     private VBox infoWord = new VBox();
+    private String word;
 
 
 
@@ -42,6 +43,7 @@ public class FormEdit {
     }
 
     private void setItem(Word word) {
+        this.word = word.getWord_target();
         VBox newItem = new VBox();
         Text word_target = new Text(word.getWord_target());
         word_target.getStyleClass().add("text-target");
@@ -72,7 +74,19 @@ public class FormEdit {
 
     }
 
+    public Button getButtonDelete() {
+        return buttonDelete;
+    }
+
+    public Button getButtonEdit() {
+        return buttonEdit;
+    }
+
     public HBox getLayout() {
         return layout;
+    }
+
+    public String getWord() {
+        return word;
     }
 }

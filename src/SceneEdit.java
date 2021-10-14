@@ -1,12 +1,12 @@
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class SceneEdit {
 
@@ -16,11 +16,12 @@ public class SceneEdit {
     private final Scene scene;
     private final Group root = new Group();
     private final Group layout = new Group();
+    private final Group form = new Group();
 
     public SceneEdit(Dictionary dictionary) {
         scene = new Scene(root, 1200, 800, Color.web("3DB2FF", 1));
         setLayout();
-        root.getChildren().addAll(layout, new Border().getBorder());
+        root.getChildren().addAll(layout, new Border().getBorder(), form);
         root.getStylesheets().add("css/Edit.css");
         event(dictionary);
     }
@@ -58,10 +59,27 @@ public class SceneEdit {
     private void event(Dictionary dictionary) {
         btn_1.setOnMouseClicked(event -> {
             if (!input.getText().isEmpty()) {
+                form.getChildren().clear();
                 String word = input.getText();
                 ArrayList<Word> list =  dictionary.getListWordSearch(word);
-                FormEdit form = new FormEdit(list.get(0));
-                root.getChildren().add(form.getLayout());
+                FormEdit formEdit = new FormEdit(list.get(0));
+                form.getChildren().add(formEdit.getLayout());
+                formEdit.getButtonDelete().setOnAction(event1 -> {
+                    AlertDelete alertDelete = new AlertDelete();
+                    Optional<ButtonType> result = alertDelete.getAlert_confirm().showAndWait();
+                    if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
+                        try {
+                            dictionary.delete(formEdit.getWord());
+                            alertDelete.getAlert_information().setContentText("Delete successfully!");
+                            form.getChildren().clear();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        alertDelete.getAlert_information().setContentText("Delete fail!");
+                    }
+                    alertDelete.getAlert_information().show();
+                });
 
             }
         });
