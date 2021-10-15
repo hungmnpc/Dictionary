@@ -1,6 +1,7 @@
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
@@ -23,7 +24,8 @@ public class SceneEdit {
         setLayout();
         root.getChildren().addAll(layout, new Border().getBorder(), form);
         root.getStylesheets().add("css/Edit.css");
-        event(dictionary);
+        click_Btn(dictionary);
+        click_Enter(dictionary);
     }
 
     private void setLayout() {
@@ -55,13 +57,12 @@ public class SceneEdit {
         heading.setLayoutY(100);
         heading.getStyleClass().add("heading");
     }
-
-    private void event(Dictionary dictionary) {
-        btn_1.setOnMouseClicked(event -> {
-            if (!input.getText().isEmpty()) {
-                form.getChildren().clear();
-                String word = input.getText();
-                ArrayList<Word> list =  dictionary.getListWordSearch(word);
+    private void eventAction(Dictionary dictionary) {
+        form.getChildren().clear();
+        if (!input.getText().isEmpty()) {
+            String word = input.getText();
+            ArrayList<Word> list =  dictionary.getListWordSearch(word);
+            if (list != null) {
                 FormEdit formEdit = new FormEdit(list.get(0));
                 form.getChildren().add(formEdit.getLayout());
                 formEdit.getButtonDelete().setOnAction(event1 -> {
@@ -80,7 +81,26 @@ public class SceneEdit {
                     }
                     alertDelete.getAlert_information().show();
                 });
+            } else {
+                Label noWord = new Label("NO have word " + input.getText());
+                form.getChildren().add(noWord);
+                noWord.setStyle("-fx-font-size: 30px;");
+                noWord.setLayoutX(400);
+                noWord.setLayoutY(220);
+            }
+        }
+    }
 
+    private void click_Btn(Dictionary dictionary) {
+        btn_1.setOnMouseClicked(event -> {
+            eventAction(dictionary);
+        });
+    }
+
+    private void click_Enter(Dictionary dictionary) {
+        input.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                eventAction(dictionary);
             }
         });
     }

@@ -1,3 +1,4 @@
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -14,6 +15,7 @@ public class FormEdit {
     private VBox layout_btn = new VBox();
     private VBox infoWord = new VBox();
     private String word;
+    private Label noWord = new Label();
 
 
 
@@ -88,5 +90,9 @@ public class FormEdit {
 
     public String getWord() {
         return word;
+    }
+
+    public Label getNoWord() {
+        return noWord;
     }
 }
