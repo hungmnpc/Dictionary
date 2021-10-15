@@ -17,4 +17,5 @@ hey|/hei/|này
 hibernate|/ˈhaibəneit/|ngủ đông
 hiccup|/ˈhikap/|tiếng nấc
 high|/hai/|cao
-stupid|/ˈstjuːpid/|ngu dại, đần độn
+stupid|/ˈstjuːpid/|ngu dại, đần độn
+carnage|/'kɑ:nidʤ/|sự chém giết, sự tàn sát
