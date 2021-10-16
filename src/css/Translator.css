@@ -21,3 +21,7 @@
 .button:pressed {
     -fx-color: #FEE440;
 }
+
+.button:hover {
+    -fx-color: #FEE440;
+}

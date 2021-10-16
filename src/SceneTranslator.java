@@ -3,8 +3,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -28,7 +26,7 @@ public class SceneTranslator {
         container.getChildren().add(new Border().getBorder());
         container.getChildren().add(layout);
         setLayout();
-        getTextEngLang();
+        TranslationAction();
     }
 
     private void setLayout() {
@@ -70,8 +68,8 @@ public class SceneTranslator {
         btnTranslator.setLayoutY(380);
     }
 
-    public void getTextEngLang() {
-        btnTranslator.setOnMousePressed(event -> {
+    private void TranslationAction() {
+        btnTranslator.setOnMouseClicked(event -> {
             if (!taEngLang.getText().isEmpty()) {
                tEngLang = taEngLang.getText();
                 try {
