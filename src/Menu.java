@@ -5,11 +5,12 @@ public class Menu {
     private Button btn_search = new Button();
     private Button btn_add = new Button();
     private Button btn_edit = new Button();
+    private Button btn_translator = new Button();
     private VBox layout = new VBox();
 
     public Menu() {
         setLayout();
-        layout.getChildren().addAll(btn_search, btn_add, btn_edit);
+        layout.getChildren().addAll(btn_search, btn_add, btn_edit, btn_translator);
     }
 
     private void setLayout() {
@@ -20,7 +21,7 @@ public class Menu {
         setCSS();
         setBtn_search();
         setBtn_add();
-
+        setBtn_translator();
         setBtn_edit();
     }
 
@@ -29,12 +30,15 @@ public class Menu {
         btn_search.getStyleClass().add("button");
     }
 
+    private void setBtn_translator() {
+        btn_translator.setText("Translate");
+        btn_translator.getStyleClass().add("button");
+    }
+
     private void setBtn_add() {
         btn_add.setText("Add new word");
         btn_add.getStyleClass().add("button");
     }
-
-
 
     private void setBtn_edit() {
         btn_edit.setText("Edit");
@@ -50,9 +54,11 @@ public class Menu {
         getBtn_add().getStyleClass().clear();
         getBtn_search().getStyleClass().clear();
         getBtn_edit().getStyleClass().clear();
+        getBtn_translator().getStyleClass().clear();
         getBtn_search().getStyleClass().add("button");
         getBtn_add().getStyleClass().add("button");
         getBtn_edit().getStyleClass().add("button");
+        getBtn_translator().getStyleClass().add("button");
 
     }
 
@@ -73,6 +79,9 @@ public class Menu {
         return btn_search;
     }
 
+    public Button getBtn_translator() {
+        return btn_translator;
+    }
 
     public Button getBtn_edit() {
         return btn_edit;

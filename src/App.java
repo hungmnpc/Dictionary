@@ -18,6 +18,7 @@ public class App extends Application {
         SceneSearch scene1 = new SceneSearch(dictionary);
         SceneAdd scene2 = new SceneAdd(dictionary);
         SceneEdit scene4 = new SceneEdit(dictionary);
+        SceneTranslator scene3 = new SceneTranslator(dictionary);
         Menu menu = new Menu();
         primaryStage.setScene(scene1.getScene());
         scene1.addMenu(menu);
@@ -45,6 +46,14 @@ public class App extends Application {
                 primaryStage.setScene(scene4.getScene());
                 scene4.addMenu(menu);
                 menu.addClassSelected(menu.getBtn_edit());
+            }
+        });
+
+        menu.getBtn_translator().setOnAction(event -> {
+            if (!primaryStage.getScene().equals(scene3.getScene())) {
+                primaryStage.setScene(scene3.getScene());
+                scene3.addMenu(menu);
+                menu.addClassSelected(menu.getBtn_translator());
             }
         });
 

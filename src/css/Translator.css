@@ -1,0 +1,23 @@
+.text-area {
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+    -fx-font-size: 23px;
+    -fx-max-width: 750px;
+    -fx-max-height: 300px;
+    -fx-control-inner-background: #EDEDED;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.header {
+    -fx-font-family: 'Comic Sans MS', sans-serif;
+    -fx-font-size: 50px;
+    -fx-text-fill: linear-gradient(to right bottom, #FFE699, #FFF9B6, #FF9292, #FFCCD2);
+}
+
+.button {
+    -fx-color:  #FFFD95;
+}
+
+.button:pressed {
+    -fx-color: #FEE440;
+}
