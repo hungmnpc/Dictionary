@@ -76,7 +76,7 @@ public class Dictionary {
 
     }
 
-    public boolean check(Word word) {
+    public boolean checkAlready(Word word) {
         for (Word v :
               words) {
             if (v.getWord().equals(word.getWord())) {
@@ -95,6 +95,20 @@ public class Dictionary {
         FileWriter fw = new FileWriter(file,true);
         fw.write("\n" + word.getWord_target() + "|" + word.getWord_pronounce() + "|" + word.getWord_explain());
         fw.close();
+    }
+
+    public void editWord(Word currentWord, Word newWord) throws IOException {
+         words.remove(currentWord);
+         words.add(newWord);
+         this.sort();
+        FileWriter file = new FileWriter(dictionaryManagement.getData_url());
+        file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
+                "|" + words.get(0).getWord_explain());
+        for (int i = 1; i < words.size(); i++) {
+            file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
+                    "|" + words.get(i).getWord_explain());
+        }
+        file.close();
     }
 
 

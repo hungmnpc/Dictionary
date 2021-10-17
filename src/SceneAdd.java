@@ -1,11 +1,9 @@
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import java.io.IOException;
 import java.util.Optional;
-
 public class SceneAdd {
 
     private final Scene scene_add;
@@ -17,7 +15,6 @@ public class SceneAdd {
         this.scene_add = new Scene(root1, 1200, 800, Color.web("#3DB2FF", 1));
         root1.getChildren().addAll(formAdd.getLayout(), new Border().getBorder());
         scene_add.getStylesheets().add("css/Add.css");
-        eventHandler();
         formAdd.autoConvertPronun();
         addNewWord(dictionary);
 
@@ -25,28 +22,6 @@ public class SceneAdd {
 
     public void addMenu(Menu menu) {
         root1.getChildren().add(menu.getLayout());
-    }
-
-    private void eventHandler() {
-
-            formAdd.getInput_new_word().setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.ENTER) {
-                    if (!formAdd.getInput_new_word().getText().isEmpty()) {
-                       formAdd.getInput_pronunciation().requestFocus();
-                    }
-                }
-            });
-
-
-            formAdd.getInput_pronunciation().setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.ENTER) {
-                    if (!formAdd.getInput_pronunciation().getText().isEmpty()) {
-                        formAdd.getInput_word_explain().requestFocus();
-                    }
-                }
-            });
-
-
     }
 
     private void addNewWord(Dictionary dictionary) {
@@ -60,7 +35,7 @@ public class SceneAdd {
                         Word newWord = new Word(formAdd.getInput_new_word().getText(),
                                 formAdd.getInput_pronunciation().getText()
                                 , formAdd.getInput_word_explain().getText());
-                        if (dictionary.check(newWord)) {
+                        if (dictionary.checkAlready(newWord)) {
                             System.out.println("chưa có");
                             alert.setHeaderText("Confirm add this word");
                             Optional<ButtonType> result = alert.showAndWait();
@@ -87,7 +62,6 @@ public class SceneAdd {
             }
         });
     }
-
 
     public Scene getScene() {
         return this.scene_add;

@@ -2,6 +2,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
@@ -81,6 +82,37 @@ public class SceneEdit {
                         alertDelete.getAlert_information().setContentText("Delete fail!");
                     }
                     alertDelete.getAlert_information().show();
+                });
+                formEdit.getButtonEdit().setOnMouseClicked(event -> {
+                    if (!form.getChildren().contains(formEdit.getLayoutEdit())) {
+                        form.getChildren().add(formEdit.getLayoutEdit());
+                        formEdit.layoutEdit.getButtonCancel().setOnMouseClicked(e -> {
+                            form.getChildren().remove(formEdit.getLayoutEdit());
+                        });
+
+                        formEdit.layoutEdit.getButtonConfirm().setOnMouseClicked(e2 -> {
+                            formEdit.layoutEdit.getChange();
+                            AlertAdd alertAdd = new AlertAdd();
+                            alertAdd.getAlert_confirm().setHeaderText("Confirm changes this word!");
+                            Optional<ButtonType> result = alertAdd.getAlert_confirm().showAndWait();
+                            if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
+                                try {
+                                    dictionary.editWord(list.get(0), formEdit.layoutEdit.getChangeWord());
+                                    alertAdd.getAlert_information().setContentText("Change successfully!");
+                                    alertAdd.getAlert_information().show();
+                                    form.getChildren().remove(formEdit.getLayoutEdit());
+                                    form.getChildren().remove(formEdit.getLayout());
+                                    input.setText(null);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } else  if (result.get().getButtonData() == ButtonBar.ButtonData.CANCEL_CLOSE) {
+                                alertAdd.getAlert_information().setContentText("Change failed!");
+                                alertAdd.getAlert_information().show();
+                            }
+                        });
+                    }
+
                 });
             } else {
                 Label noWord = new Label("NO have word " + input.getText());

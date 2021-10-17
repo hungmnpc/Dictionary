@@ -19,6 +19,7 @@ public class App extends Application {
         SceneAdd scene2 = new SceneAdd(dictionary);
         SceneEdit scene4 = new SceneEdit(dictionary);
         SceneTranslator scene3 = new SceneTranslator(dictionary);
+
         Menu menu = new Menu();
         primaryStage.setScene(scene1.getScene());
         scene1.addMenu(menu);

@@ -1,7 +1,10 @@
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+
+import java.io.IOException;
 
 public class FormAdd {
     private final GridPane layout = new GridPane();
@@ -15,6 +18,7 @@ public class FormAdd {
 
     public FormAdd() {
         setLayout();
+        eventHandler();
     }
 
     private void setLayout() {
@@ -75,6 +79,32 @@ public class FormAdd {
 
     }
 
+    private void eventHandler() {
+
+        input_new_word.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (!input_new_word.getText().isEmpty()) {
+                    input_pronunciation.requestFocus();
+                    try {
+                        input_word_explain.setText(Translator.translate(input_new_word.getText()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        input_pronunciation.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (!input_pronunciation.getText().isEmpty()) {
+                    input_word_explain.requestFocus();
+                }
+            }
+        });
+
+
+    }
+
     public void autoConvertPronun() {
         if (!input_pronunciation.getText().isEmpty()) {
             if (input_pronunciation.getText().charAt(0) != '/' ) {
@@ -100,7 +130,6 @@ public class FormAdd {
         button.getStyleClass().add("button");
         button.getStylesheets().add("css/Button.css");
         button.setDisable(false);
-
     }
 
     public GridPane getLayout() {

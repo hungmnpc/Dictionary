@@ -1,6 +1,9 @@
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -14,14 +17,13 @@ public class FormEdit {
     private HBox layout = new HBox();
     private VBox layout_btn = new VBox();
     private VBox infoWord = new VBox();
-    private String word;
     private Label noWord = new Label();
-
-
+    public LayoutEdit layoutEdit;
 
     public FormEdit(Word word) {
         setItem(word);
         setLayout();
+        layoutEdit = new LayoutEdit(word);
     }
 
     private void setLayout() {
@@ -45,7 +47,6 @@ public class FormEdit {
     }
 
     private void setItem(Word word) {
-        this.word = word.getWord_target();
         VBox newItem = new VBox();
         Text word_target = new Text(word.getWord_target());
         word_target.getStyleClass().add("text-target");
@@ -88,11 +89,12 @@ public class FormEdit {
         return layout;
     }
 
-    public String getWord() {
-        return word;
-    }
-
     public Label getNoWord() {
         return noWord;
     }
+
+    public GridPane getLayoutEdit() {
+        return layoutEdit.getLayoutEdit();
+    }
+
 }
