@@ -79,7 +79,6 @@ public class LayoutEdit {
                 changeWord.setWord_target(tfword.getText());
                 changeWord.setWord_pronounce(tfpronunciation.getText());
                 changeWord.setWord_explain(tawordExplain.getText());
-                System.out.println(changeWord.getWord());
     }
 
     public Word getChangeWord() {
