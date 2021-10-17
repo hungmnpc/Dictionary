@@ -20,4 +20,5 @@ hey|/hei/|này
 hibernate|/ˈhaibəneit/|ngủ đông
 hiccup|/ˈhikap/|tiếng nấc
 high|/hai/|cao
-stupid|/ˈstjuːpid/|ngu dại, đần độn
+stupid|/ˈstjuːpid/|ngu dại, đần độn
+anguish|/ˈæŋɡwɪʃ/|Nỗi đau đớn

@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Word implements Comparable<Word> {
     private String word_target;
     private String word_pronounce;
@@ -15,7 +17,7 @@ public class Word implements Comparable<Word> {
     }
 
     public Word(String s1, String s2, String s3) {
-        word_target = s1;
+        word_target = s1.toLowerCase(Locale.ROOT);
         word_pronounce = s2;
         word_explain = s3;
     }
