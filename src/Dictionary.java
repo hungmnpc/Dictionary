@@ -71,43 +71,43 @@ public class Dictionary {
                 r = i - 1;
             }
         }
-
         return null;
         //return new ArrayList<>(-1);
 
     }
 
-    public void insertNewWord(String s1, String s2, String s3) throws IOException {
-        Word word = new Word(s1, s2, s3);
+    public boolean check(Word word) {
+        for (Word v :
+              words) {
+            if (v.getWord().equals(word.getWord())) {
+                System.out.println("đã có");
+                return false;
+            }
+        }
+        return  true;
+    }
+
+    public void insertNewWord(Word word) throws IOException {
         words.add(word);
         this.sort();
 
         File file = new File(dictionaryManagement.getData_url());
         FileWriter fw = new FileWriter(file,true);
-        fw.write("\n" + s1 + "|" + s2 + "|" + s3);
+        fw.write("\n" + word.getWord_target() + "|" + word.getWord_pronounce() + "|" + word.getWord_explain());
         fw.close();
     }
 
-    public void delete(String s) throws IOException {
-        ArrayList<Integer> list = dictionarySearcher(s);
-        if (list != null) {
-            if (words.get(list.get(0)).getWord_target().equals(s)) {
-                System.out.println("Deleted");
 
-                words.remove((int) list.get(0));
-                FileWriter file = new FileWriter(dictionaryManagement.getData_url());
-                file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
-                        "|" + words.get(0).getWord_explain());
-                for (int i = 1; i < words.size(); i++) {
-                    file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
-                            "|" + words.get(i).getWord_explain());
-                }
-                file.close();
-                return;
-            }
+    public void delete(Word word) throws IOException {
+        words.remove(word);
+        FileWriter file = new FileWriter(dictionaryManagement.getData_url());
+        file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
+                "|" + words.get(0).getWord_explain());
+        for (int i = 1; i < words.size(); i++) {
+            file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
+                    "|" + words.get(i).getWord_explain());
         }
-
-        System.out.println("Not have word " + s);
+        file.close();
     }
 
     public void show() {

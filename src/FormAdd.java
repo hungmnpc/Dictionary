@@ -75,6 +75,20 @@ public class FormAdd {
 
     }
 
+    public void autoConvertPronun() {
+        if (!input_pronunciation.getText().isEmpty()) {
+            if (input_pronunciation.getText().charAt(0) != '/' ) {
+
+                input_pronunciation.setText('/' + input_pronunciation.getText());
+                System.out.println(input_pronunciation.getText());
+            }
+            if (input_pronunciation.getText().charAt(input_pronunciation.getText().length() - 1) != '/') {
+                input_pronunciation.setText(input_pronunciation.getText() + '/');
+                System.out.println(input_pronunciation.getText());
+            }
+        }
+    }
+
     public void setEmptyInput() {
         input_new_word.setText(null);
         input_pronunciation.setText(null);

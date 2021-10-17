@@ -70,9 +70,10 @@ public class SceneEdit {
                     Optional<ButtonType> result = alertDelete.getAlert_confirm().showAndWait();
                     if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                         try {
-                            dictionary.delete(formEdit.getWord());
+                            dictionary.delete(list.get(0));
                             alertDelete.getAlert_information().setContentText("Delete successfully!");
                             form.getChildren().clear();
+                            input.setText(null);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

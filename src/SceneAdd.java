@@ -3,7 +3,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -19,6 +18,7 @@ public class SceneAdd {
         root1.getChildren().addAll(formAdd.getLayout(), new Border().getBorder());
         scene_add.getStylesheets().add("css/Add.css");
         eventHandler();
+        formAdd.autoConvertPronun();
         addNewWord(dictionary);
 
     }
@@ -54,26 +54,34 @@ public class SceneAdd {
             if (!formAdd.getInput_new_word().getText().isEmpty()) {
                 if (!formAdd.getInput_pronunciation().getText().isEmpty()) {
                     if (!formAdd.getInput_word_explain().getText().isEmpty()) {
+                        formAdd.autoConvertPronun();
                         Alert alert = alertAdd.getAlert_confirm();
                         Alert alert1 = alertAdd.getAlert_information();
-                        Optional<ButtonType> result = alert.showAndWait();
-                        if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-                            try {
-                                dictionary.insertNewWord(formAdd.getInput_new_word().getText(),
-                                        formAdd.getInput_pronunciation().getText()
-                                        , formAdd.getInput_word_explain().getText());
+                        Word newWord = new Word(formAdd.getInput_new_word().getText(),
+                                formAdd.getInput_pronunciation().getText()
+                                , formAdd.getInput_word_explain().getText());
+                        if (dictionary.check(newWord)) {
+                            System.out.println("chưa có");
+                            alert.setHeaderText("Confirm add this word");
+                            Optional<ButtonType> result = alert.showAndWait();
+                            if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
+                                try {
+                                    dictionary.insertNewWord(newWord);
 
-                                alert1.setContentText("Add successfully!");
-                                formAdd.setEmptyInput();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                                    alert1.setContentText("Add successfully!");
+                                    formAdd.setEmptyInput();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                alert1.setContentText("Add fail!");
+                                System.out.println("không thành công");
                             }
+                            alert1.show();
                         } else {
-                            alert1.setContentText("Add fail!");
-                            System.out.println("không thành công");
+                            alert1.setContentText("This word already !");
+                            alert1.show();
                         }
-                        alert1.show();
-
                     }
                 }
             }

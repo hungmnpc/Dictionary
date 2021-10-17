@@ -17,7 +17,6 @@ public class AlertAdd {
 
     private void setAlert_confirm() {
         alert_confirm.setTitle("Confirmation");
-        alert_confirm.setHeaderText("Confirm add this word");
         alert_confirm.getButtonTypes().clear();
         ButtonType buttonTypeConfirm = new ButtonType("Confirm",ButtonBar.ButtonData.OK_DONE);
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);

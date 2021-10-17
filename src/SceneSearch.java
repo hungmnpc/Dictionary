@@ -16,25 +16,21 @@ import java.util.ArrayList;
 
 public class SceneSearch {
     private final Scene scene_search;
-    private final Group root;
-    private TextField input_search;
-    private Button btn_search;
+    private final Group root = new Group();
+    private TextField input_search = new TextField();
+    private Button btn_search=  new Button();
     private String word_search;
-    private Group layout;
-    private Group layout2;
+    private Group layout = new Group();
+    private Group layout2 = new Group();
 
 
     public SceneSearch(Dictionary dictionary) throws IOException {
-        this.root = new Group();
-        this.layout = new Group();
-        this.layout2 = new Group();
         scene_search = new Scene(root, 1200, 800, Color.web("#3DB2FF", 1));
         this.word_search = "";
         setLayout();
         layout.getChildren().addAll(this.getInput_search(), this.getBtn_search());
         root.getChildren().addAll(layout, new Border().getBorder(), layout2);
         layout.getStyleClass().add("layout");
-
 
         clickBtnHandler(dictionary);
         getSearchWordByKey(dictionary);
@@ -54,7 +50,6 @@ public class SceneSearch {
     }
 
     private void setInput_search() {
-        input_search = new TextField();
         input_search.setPromptText("Search here");
         input_search.setFocusTraversable(false);
         input_search.setMinWidth(600);
@@ -66,7 +61,6 @@ public class SceneSearch {
     }
 
     private void setBtn_search() {
-        btn_search = new Button();
         btn_search.setMinWidth(150);
         btn_search.setMinHeight(50);
         btn_search.setLayoutX(610);
@@ -88,6 +82,8 @@ public class SceneSearch {
             System.out.println("ok");
         }
     }
+
+
 
     private void clickBtnHandler(Dictionary dictionary) {
         this.btn_search.setOnAction(new EventHandler<ActionEvent>() {

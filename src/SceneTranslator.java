@@ -5,19 +5,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-
 import java.io.IOException;
 
 public class SceneTranslator {
-    private TextArea taEngLang = new TextArea();
-    private TextArea taViLang = new TextArea();
-    private Button btnTranslator = new Button("Translate");
-    private Label lbEngLang = new Label("From:");
-    private Label lbViLang = new Label("To:");
-    private Label lbHeader = new Label("Translate");
-    private Scene root;
-    private Group container = new Group();
-    private Group layout = new Group();
+    private final TextArea taEngLang = new TextArea();
+    private final TextArea taViLang = new TextArea();
+    private final Button btnTranslator = new Button("Translate");
+    private final Label lbEngLang = new Label("From:");
+    private final Label lbViLang = new Label("To:");
+    private final Label lbHeader = new Label("Translate");
+    private final Scene root;
+    private final Group container = new Group();
+    private final Group layout = new Group();
     private String tEngLang;
     private  String tViLang;
 

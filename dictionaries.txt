@@ -6,8 +6,11 @@ abaddon|/ə'bædən/|âm ti, địa ngục, con quỷ
 abalone|/,æbə'louni/|(từ Mỹ,nghĩa Mỹ) bào ngư
 abatement|/ə'beitmənt/|sự dịu đi, sự yếu đi, sự nhụt đi, sự giảm bớt, sự đỡ, sự ngớt
 abbreviate|/ə'bri:vieit/|tóm tắt, viết tắt; rút ngắn lại (cuộc đi thăm...)
+apple|/ˈæpl/|quả táo
+apple sauce|/ˌæpl ˈsɔːs/|sốt táo
 balloon|/bəˈluːn/|bóng, khí cầu, kinh khí cầu
 blow|/bləu/|cú đánh
+carnage|/'kɑ:nidʤ/|sự chém giết, sự tàn sát
 game|/ɡeɪm/|trò chơi
 hello|/həˈləʊ/|xin chào; biểu lộ sự ngạc nhiên
 hero|/ˈhiərəu/|anh hùng
@@ -17,5 +20,4 @@ hey|/hei/|này
 hibernate|/ˈhaibəneit/|ngủ đông
 hiccup|/ˈhikap/|tiếng nấc
 high|/hai/|cao
-stupid|/ˈstjuːpid/|ngu dại, đần độn
-carnage|/'kɑ:nidʤ/|sự chém giết, sự tàn sát
+stupid|/ˈstjuːpid/|ngu dại, đần độn
