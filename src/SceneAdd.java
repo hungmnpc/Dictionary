@@ -79,7 +79,7 @@ public class SceneAdd {
                             }
                             alert1.show();
                         } else {
-                            alert1.setContentText("This word already !");
+                            alert1.setContentText("This word already exists!");
                             alert1.show();
                         }
                     }
