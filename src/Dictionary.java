@@ -77,8 +77,7 @@ public class Dictionary {
     }
 
     public boolean checkAlready(Word word) {
-        for (Word v :
-              words) {
+        for (Word v : words) {
             if (v.getWord().equals(word.getWord())) {
                 System.out.println("đã có");
                 return false;
@@ -93,20 +92,18 @@ public class Dictionary {
 
         File file = new File(dictionaryManagement.getData_url());
         FileWriter fw = new FileWriter(file,true);
-        fw.write("\n" + word.getWord_target() + "|" + word.getWord_pronounce() + "|" + word.getWord_explain());
+        fw.write(word.getWord_target() + " " + word.getWord_pronounce() + "\n" + word.getWord_explain() + "\n\n@");
         fw.close();
     }
 
     public void editWord(Word currentWord, Word newWord) throws IOException {
-         words.remove(currentWord);
-         words.add(newWord);
-         this.sort();
+        words.remove(currentWord);
+        words.add(newWord);
+        this.sort();
         FileWriter file = new FileWriter(dictionaryManagement.getData_url());
-        file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
-                "|" + words.get(0).getWord_explain());
-        for (int i = 1; i < words.size(); i++) {
-            file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
-                    "|" + words.get(i).getWord_explain());
+
+        for (Word word : words) {
+            file.write( word.getWord_target() + " " + word.getWord_pronounce() + "\n" + word.getWord_explain() + "\n\n@");
         }
         file.close();
     }
@@ -115,11 +112,8 @@ public class Dictionary {
     public void delete(Word word) throws IOException {
         words.remove(word);
         FileWriter file = new FileWriter(dictionaryManagement.getData_url());
-        file.write(words.get(0).getWord_target() + "|" + words.get(0).getWord_pronounce() +
-                "|" + words.get(0).getWord_explain());
-        for (int i = 1; i < words.size(); i++) {
-            file.write("\n" + words.get(i).getWord_target() + "|" + words.get(i).getWord_pronounce() +
-                    "|" + words.get(i).getWord_explain());
+        for (Word w : words) {
+            file.write(w.getWord_target() + " " + w.getWord_pronounce() + "\n" + w.getWord_explain() + "\n\n@");
         }
         file.close();
     }

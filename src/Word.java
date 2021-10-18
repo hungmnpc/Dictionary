@@ -70,7 +70,7 @@ public class Word implements Comparable<Word> {
      * @return
      */
     public String getWord() {
-        return String.format("\t%s\t\t|\t\t%s\t\t|\t\t%s", getWord_target(), getWord_pronounce(), getWord_explain());
+        return getWord_target() + " " + getWord_pronounce() + "\n" + getWord_explain();
     }
 
 //    public static void main(String[] args) throws IOException {
