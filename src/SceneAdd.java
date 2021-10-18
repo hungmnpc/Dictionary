@@ -36,7 +36,6 @@ public class SceneAdd {
                                 formAdd.getInput_pronunciation().getText()
                                 , formAdd.getInput_word_explain().getText());
                         if (dictionary.checkAlready(newWord)) {
-                            System.out.println("chưa có");
                             alert.setHeaderText("Confirm add this word");
                             Optional<ButtonType> result = alert.showAndWait();
                             if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
@@ -50,7 +49,6 @@ public class SceneAdd {
                                 }
                             } else {
                                 alert1.setContentText("Add fail!");
-                                System.out.println("không thành công");
                             }
                             alert1.show();
                         } else {

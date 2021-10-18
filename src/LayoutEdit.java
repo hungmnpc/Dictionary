@@ -81,9 +81,15 @@ public class LayoutEdit {
         return buttonConfirm;
     }
     public void getChange() {
-                changeWord.setWord_target(tfword.getText());
-                changeWord.setWord_pronounce(tfpronunciation.getText());
-                changeWord.setWord_explain(tawordExplain.getText());
+        changeWord.setWord_target(tfword.getText());
+        if (tfpronunciation.getText().charAt(0) != '/') {
+            tfpronunciation.setText("/" + tfpronunciation.getText());
+        }
+        if (tfpronunciation.getText().charAt(tfpronunciation.getText().length() - 1) != '/') {
+            tfpronunciation.setText(tfpronunciation.getText() + "/");
+        }
+        changeWord.setWord_pronounce(tfpronunciation.getText());
+        changeWord.setWord_explain(tawordExplain.getText());
     }
 
     public Word getChangeWord() {

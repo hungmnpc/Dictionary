@@ -1,8 +1,10 @@
+import com.sun.org.apache.xerces.internal.impl.xs.identity.UniqueOrKey;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -22,6 +24,7 @@ public class SceneSearch {
     private String word_search;
     private Group layout = new Group();
     private Group layout2 = new Group();
+    private Label noWord = new Label("Not have word: ");
 
 
     public SceneSearch(Dictionary dictionary) throws IOException {
@@ -79,7 +82,6 @@ public class SceneSearch {
             delete.setOnAction(event -> {
                 input_search.setText("");
             });
-            System.out.println("ok");
         }
     }
 
@@ -89,18 +91,7 @@ public class SceneSearch {
         this.btn_search.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                layout2.getChildren().clear();
-                if (!input_search.getText().isEmpty()){
-                    word_search = input_search.getText();
-                    System.out.println(input_search.getText());
-                    ArrayList<Word> listWord = dictionary.getListWordSearch(word_search);
-                    if (listWord != null) {
-                        FormSearch form = new FormSearch(listWord);
-                        layout2.getChildren().add(form.getLayout());
-                    } else {
-                        System.out.println("Hung dbrr");
-                    }
-                }
+                action(dictionary);
             }
         });
     }
@@ -108,25 +99,33 @@ public class SceneSearch {
     private void getSearchWordByKey(Dictionary dictionary) {
         input_search.setOnKeyReleased( event -> {
             if (event.getCode() == KeyCode.ENTER){
-                layout2.getChildren().clear();
                 btn_search.requestFocus();
-                if (!input_search.getText().isEmpty()) {
-                    word_search = input_search.getText();
-                    System.out.println(word_search);
-                    ArrayList<Word> listWord = dictionary.getListWordSearch(this.word_search);
-                    if (listWord != null) {
-                        FormSearch form = new FormSearch(listWord);
-                        layout2.getChildren().add(form.getLayout());
-                    } else {
-                        System.out.println("Hung dbrr");
-                    }
-                }
-
+                action(dictionary);
             }
         });
 
 
 
+    }
+
+    private void action(Dictionary dictionary) {
+        layout2.getChildren().clear();
+        if (!input_search.getText().isEmpty()) {
+            word_search = input_search.getText();
+            System.out.println(word_search);
+            ArrayList<Word> listWord = dictionary.getListWordSearch(this.word_search);
+            if (listWord != null) {
+                FormSearch form = new FormSearch(listWord);
+                layout2.getChildren().add(form.getLayout());
+            } else {
+                noWord.setText("Not have word: " + input_search.getText());
+                noWord.setStyle("-fx-font-size: 30px;" +
+                        "-fx-font-family: 'Comic Sans MS', sans-serif;");
+                noWord.setLayoutX(400);
+                noWord.setLayoutY(170);
+                layout2.getChildren().add(noWord);
+            }
+        }
     }
 
     private Button getBtn_search() {
