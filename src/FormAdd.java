@@ -1,5 +1,6 @@
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
@@ -12,7 +13,7 @@ public class FormAdd {
     private final Label word_explain = new Label("Explain");
     private final Label pronunciation = new Label("Pronunciation");
     private TextField input_new_word = new TextField();
-    private  TextField input_word_explain = new TextField();
+    private TextArea input_word_explain = new TextArea();
     private  TextField input_pronunciation = new TextField();
     private Button button = new Button();
 
@@ -76,7 +77,8 @@ public class FormAdd {
         input_word_explain.setFocusTraversable(false);
         input_new_word.setFocusTraversable(false);
         input_pronunciation.setFocusTraversable(false);
-
+        input_word_explain.setMaxWidth(600);
+        input_word_explain.setMaxHeight(300);
     }
 
     private void eventHandler() {
@@ -148,7 +150,7 @@ public class FormAdd {
         return input_pronunciation;
     }
 
-    public TextField getInput_word_explain() {
+    public TextArea getInput_word_explain() {
         return input_word_explain;
     }
 }

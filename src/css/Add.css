@@ -9,11 +9,8 @@
 }
 
 .input {
-    -fx-min-width: 400px;
-    -fx-min-height: 50px;
     -fx-font-family: 'Comic Sans MS', sans-serif;
     -fx-font-size : 25px;
-    -fx-background-radius : 10px;
     -fx-effect: dropshadow( three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
     -fx-text-fill: #3DB2FF;
 }
