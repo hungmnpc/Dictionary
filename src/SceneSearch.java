@@ -25,7 +25,7 @@ public class SceneSearch {
 
 
     public SceneSearch(Dictionary dictionary) throws IOException {
-        scene_search = new Scene(root, 1200, 800, Color.web("#3DB2FF", 1));
+        scene_search = new Scene(root, 1500, 800, Color.web("#3DB2FF", 1));
         this.word_search = "";
         setLayout();
         layout.getChildren().addAll(this.getInput_search(), this.getBtn_search());

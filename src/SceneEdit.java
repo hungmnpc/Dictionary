@@ -21,7 +21,7 @@ public class SceneEdit {
     private final Group form = new Group();
 
     public SceneEdit(Dictionary dictionary) {
-        scene = new Scene(root, 1200, 800, Color.web("3DB2FF", 1));
+        scene = new Scene(root, 1500, 800, Color.web("3DB2FF", 1));
         setLayout();
         root.getChildren().addAll(layout, new Border().getBorder(), form);
         root.getStylesheets().add("css/Edit.css");

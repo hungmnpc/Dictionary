@@ -1,12 +1,6 @@
 import java.io.*;
-import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.CharBuffer;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DictionaryManagement {
     ArrayList<Word> words;
@@ -53,6 +47,48 @@ public class DictionaryManagement {
         }
 
         file.close();
+    }
+
+    public ArrayList<Integer> dictionarySearcher(String s) {
+        s = s.trim();
+        ArrayList<Integer> list = new ArrayList<>();
+        int l = 0;
+        int r = words.size() - 1;
+
+        while (l <= r) {
+            int i = (l + r) / 2;
+
+            if (words.get(i).getWord_target().substring(0,
+                    Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
+                int j = i;
+                while (words.get(i).getWord_target().substring(0,
+                        Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
+                    i--;
+                    if (i < 0) {
+                        break;
+                    }
+                }
+                while (words.get(j).getWord_target().substring(0,
+                        Math.min(words.get(j).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
+                    j++;
+                    if (j > words.size() - 1) {
+                        break;
+                    }
+                }
+                list.add(++i);
+                list.add(--j);
+                return list;
+            }
+            else if (words.get(i).getWord_target().compareToIgnoreCase(s) < 0) {
+                l = i + 1;
+            }
+            else {
+                r = i - 1;
+            }
+        }
+        return null;
+        //return new ArrayList<>(-1);
+
     }
 
 //    public void insetFromCommandline(){

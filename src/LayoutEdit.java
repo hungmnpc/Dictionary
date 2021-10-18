@@ -3,6 +3,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 import java.util.Locale;
 
@@ -50,18 +51,22 @@ public class LayoutEdit {
         GridPane.setConstraints(tfpronunciation, 1, 1);
         GridPane.setConstraints(wordExplain, 0, 2);
         GridPane.setConstraints(tawordExplain, 1, 2);
-        GridPane.setConstraints(buttonConfirm, 0, 3);
-        GridPane.setConstraints(buttonCancel, 1, 3);
+        GridPane.setConstraints(buttonConfirm, 2, 0);
+        GridPane.setConstraints(buttonCancel, 2, 1);
         buttonConfirm.setDisable(true);
         layoutEdit.setHgap(10);
         layoutEdit.setVgap(10);
         layoutEdit.getChildren().addAll(wordExplain, tawordExplain, pronunciation, tfpronunciation, wordTarget, tfword, buttonConfirm,  buttonCancel);
         tfpronunciation.setText(word.getWord_pronounce());
+        tfpronunciation.setFont(Font.font(20));
         tfword.setText(word.getWord_target());
+        tfword.setFont(Font.font(20));
         tawordExplain.setText(word.getWord_explain());
-        tawordExplain.setMaxHeight(100);
+        tawordExplain.setMaxHeight(120);
+        tawordExplain.setWrapText(true);
+        tawordExplain.setFont(Font.font(20));
         layoutEdit.setLayoutX(400);
-        layoutEdit.setLayoutY(450);
+        layoutEdit.setLayoutY(560);
     }
 
     public GridPane getLayoutEdit() {

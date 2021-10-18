@@ -1,13 +1,10 @@
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Dictionary {
     ArrayList<Word> words;
-
     DictionaryManagement dictionaryManagement;
 
     /**
@@ -33,47 +30,6 @@ public class Dictionary {
 
     public void sort() {
         words.sort(Word::compareTo);
-    }
-
-    private ArrayList<Integer> dictionarySearcher(String s) {
-        ArrayList<Integer> list = new ArrayList<>();
-        int l = 0;
-        int r = words.size() - 1;
-
-        while (l <= r) {
-            int i = (l + r) / 2;
-
-            if (words.get(i).getWord_target().substring(0,
-                    Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
-                int j = i;
-                while (words.get(i).getWord_target().substring(0,
-                        Math.min(words.get(i).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
-                    i--;
-                    if (i < 0) {
-                        break;
-                    }
-                }
-                while (words.get(j).getWord_target().substring(0,
-                        Math.min(words.get(j).getWord_target().length(), s.length())).equalsIgnoreCase(s)) {
-                    j++;
-                    if (j > words.size() - 1) {
-                        break;
-                    }
-                }
-                list.add(++i);
-                list.add(--j);
-                return list;
-            }
-            else if (words.get(i).getWord_target().compareToIgnoreCase(s) < 0) {
-                l = i + 1;
-            }
-            else {
-                r = i - 1;
-            }
-        }
-        return null;
-        //return new ArrayList<>(-1);
-
     }
 
     public boolean checkAlready(Word word) {
@@ -125,7 +81,7 @@ public class Dictionary {
     }
 
     public ArrayList<Word> getListWordSearch(String s) {
-        ArrayList<Integer> index =  dictionarySearcher(s);
+        ArrayList<Integer> index =  dictionaryManagement.dictionarySearcher(s);
         if (index != null) {
             int a = index.get(0);
             int b = index.get(1);
@@ -139,5 +95,4 @@ public class Dictionary {
             return null;
         }
     }
-
 }

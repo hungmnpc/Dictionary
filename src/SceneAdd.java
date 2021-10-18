@@ -12,7 +12,7 @@ public class SceneAdd {
     private FormAdd formAdd = new FormAdd();
 
     public SceneAdd(Dictionary dictionary) {
-        this.scene_add = new Scene(root1, 1200, 800, Color.web("#3DB2FF", 1));
+        this.scene_add = new Scene(root1, 1500, 800, Color.web("#3DB2FF", 1));
         root1.getChildren().addAll(formAdd.getLayout(), new Border().getBorder());
         scene_add.getStylesheets().add("css/Add.css");
         formAdd.autoConvertPronun();

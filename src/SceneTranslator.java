@@ -21,7 +21,7 @@ public class SceneTranslator {
     private  String tViLang;
 
     public SceneTranslator(Dictionary dictionary) {
-        this.root = new Scene(container, 1200, 800, Color.web("#3DB2FF", 1));
+        this.root = new Scene(container, 1500, 800, Color.web("#3DB2FF", 1));
         container.getChildren().add(new Border().getBorder());
         container.getChildren().add(layout);
         setLayout();

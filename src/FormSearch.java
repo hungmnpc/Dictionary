@@ -1,4 +1,3 @@
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -22,12 +21,11 @@ public class FormSearch {
         setItems(list);
         setLayout();
         VBox.setVgrow(scroller, Priority.ALWAYS);
-        scroller.setPrefSize(800, 600);
+        scroller.setPrefSize(1000, 600);
         scroller.setContent(layout);
         scroller.setPannable(true);
         scroller.setStyle("-fx-background: #3DB2FF;" +
                 "-fx-border-color: #3DB2FF;");
-        scroller.setFitToWidth(true);
     }
 
     private void setLayout() {
@@ -57,6 +55,7 @@ public class FormSearch {
         Text word_explain = new Text(word.getWord_explain());
         selectedImage.setImage(icon);
         Text word_pronounce = new Text(word.getWord_pronounce());
+        word_explain.setWrappingWidth(800);
         pronounce.getChildren().addAll(selectedImage, word_pronounce);
         newItem.getChildren().addAll(word_target, pronounce, word_explain);
         word_pronounce.getStyleClass().add("text-pronounce");

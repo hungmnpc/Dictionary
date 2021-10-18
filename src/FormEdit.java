@@ -1,11 +1,8 @@
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -19,6 +16,7 @@ public class FormEdit {
     private VBox infoWord = new VBox();
     private Label noWord = new Label();
     public LayoutEdit layoutEdit;
+    private ScrollPane scroller = new ScrollPane();
 
     public FormEdit(Word word) {
         setItem(word);
@@ -30,7 +28,9 @@ public class FormEdit {
         setButton();
         layout_btn.getChildren().addAll(buttonDelete, buttonEdit);
         layout_btn.setSpacing(20);
-        layout.getChildren().addAll(infoWord, layout_btn);
+        layout.getChildren().addAll(scroller, layout_btn);
+        scroller.setContent(infoWord);
+        scroller.setPrefSize(800, 300);
         layout.setLayoutX(400);
         layout.setLayoutY(250);
         layout_btn.setStyle("-fx-background-color: #EDEDED");
@@ -60,6 +60,7 @@ public class FormEdit {
 
         Text word_explain = new Text(word.getWord_explain());
         selectedImage.setImage(icon);
+        word_explain.setWrappingWidth(780);
         Text word_pronounce = new Text(word.getWord_pronounce());
         pronounce.getChildren().addAll(selectedImage, word_pronounce);
         newItem.getChildren().addAll(word_target, pronounce, word_explain);
