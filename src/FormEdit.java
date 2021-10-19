@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
+import java.util.ArrayList;
+
 public class FormEdit {
     private Button buttonEdit =  new Button();
     private Button buttonDelete = new Button();
@@ -17,16 +19,24 @@ public class FormEdit {
     private Label noWord = new Label();
     public LayoutEdit layoutEdit;
     private ScrollPane scroller = new ScrollPane();
+    private Button buttonCancel = new Button();
+    private Button buttonNext = new Button();
+    private Button buttonPrevious = new Button();
+    private  ArrayList<Word> list;
+    private Word word;
+    private int index = 0;
 
-    public FormEdit(Word word) {
-        setItem(word);
+    public FormEdit(ArrayList<Word> list) {
+        this.list = list;
+        word = list.get(index);
+        setItem();
         setLayout();
         layoutEdit = new LayoutEdit(word);
     }
 
     private void setLayout() {
         setButton();
-        layout_btn.getChildren().addAll(buttonDelete, buttonEdit);
+        layout_btn.getChildren().addAll(buttonDelete, buttonEdit, buttonCancel, buttonPrevious , buttonNext);
         layout_btn.setSpacing(20);
         layout.getChildren().addAll(scroller, layout_btn);
         scroller.setContent(infoWord);
@@ -38,15 +48,23 @@ public class FormEdit {
 
     private void setButton() {
         buttonDelete.setText("Delete");
+        buttonCancel.setText("Cancel");
         buttonEdit.setText("Edit");
+        buttonNext.setText("Next");
+        buttonPrevious.setText("Previous");
         buttonEdit.getStylesheets().add("css/Button.css");
         buttonDelete.getStylesheets().add("css/Button.css");
+        buttonCancel.getStylesheets().add("css/Button.css");
+        buttonNext.getStylesheets().add("css/Button.css");
+        buttonPrevious.getStylesheets().add("css/Button.css");
         buttonDelete.setStyle("-fx-background-radius:0;" + "-fx-max-width: 120px;" + "-fx-font-size: 20px");
         buttonEdit.setStyle("-fx-background-radius:0;" + "-fx-min-width: 120px;" + "-fx-font-size: 20px");
-
+        buttonCancel.setStyle("-fx-background-radius:0;" + "-fx-min-width: 120px;" + "-fx-font-size: 20px");
+        buttonNext.setStyle("-fx-background-radius:0;" + "-fx-min-width: 120px;" + "-fx-font-size: 20px");
+        buttonPrevious.setStyle("-fx-background-radius:0;" + "-fx-min-width: 120px;" + "-fx-font-size: 20px");
     }
 
-    private void setItem(Word word) {
+    private void setItem() {
         VBox newItem = new VBox();
         Text word_target = new Text(word.getWord_target());
         word_target.getStyleClass().add("text-target");
@@ -75,7 +93,6 @@ public class FormEdit {
                 "-fx-border-width: 0px;");
 
         this.infoWord = newItem;
-
     }
 
     public Button getButtonDelete() {
@@ -84,6 +101,10 @@ public class FormEdit {
 
     public Button getButtonEdit() {
         return buttonEdit;
+    }
+
+    public Button getButtonCancel() {
+        return buttonCancel;
     }
 
     public HBox getLayout() {
@@ -98,4 +119,37 @@ public class FormEdit {
         return layoutEdit.getLayoutEdit();
     }
 
+    public void nextAction() {
+        if (index < list.size() - 1) {
+            index++;
+            word = list.get(index);
+            setItem();
+            scroller.setContent(null);
+            scroller.setContent(infoWord);
+            layoutEdit.nextWord(word);
+        }
+    }
+
+    public void previousAction() {
+        if (index > 0) {
+            index--;
+            word = list.get(index);
+            setItem();
+            scroller.setContent(null);
+            scroller.setContent(infoWord);
+            layoutEdit.nextWord(word);
+        }
+    }
+
+    public Button getButtonNext() {
+        return buttonNext;
+    }
+
+    public Button getButtonPrevious() {
+        return buttonPrevious;
+    }
+
+    public Word getWord() {
+        return word;
+    }
 }

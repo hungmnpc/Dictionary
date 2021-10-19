@@ -22,7 +22,7 @@ public class LayoutEdit {
 
     public LayoutEdit(Word word) {
         this.currentWord = word;
-        setLayout(word);
+        setLayout(currentWord);
         setChangeAction();
     }
 
@@ -45,6 +45,7 @@ public class LayoutEdit {
     }
 
     private void setLayout(Word word) {
+        layoutEdit.getChildren().clear();
         GridPane.setConstraints(wordTarget, 0, 0);
         GridPane.setConstraints(tfword, 1, 0);
         GridPane.setConstraints(pronunciation, 0, 1);
@@ -94,6 +95,16 @@ public class LayoutEdit {
 
     public Word getChangeWord() {
         return changeWord;
+    }
+
+    public void nextWord(Word nextWord) {
+        currentWord = nextWord;
+        setLayout(currentWord);
+    }
+
+    public void previousWord(Word preWord) {
+        currentWord = preWord;
+        setLayout(preWord);
     }
 }
 

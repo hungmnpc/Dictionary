@@ -64,14 +64,14 @@ public class SceneEdit {
             String word = input.getText();
             ArrayList<Word> list =  dictionary.getListWordSearch(word);
             if (list != null) {
-                FormEdit formEdit = new FormEdit(list.get(0));
+                FormEdit formEdit = new FormEdit(list);
                 form.getChildren().add(formEdit.getLayout());
                 formEdit.getButtonDelete().setOnAction(event1 -> {
                     AlertDelete alertDelete = new AlertDelete();
                     Optional<ButtonType> result = alertDelete.getAlert_confirm().showAndWait();
                     if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                         try {
-                            dictionary.delete(list.get(0));
+                            dictionary.delete(formEdit.getWord());
                             alertDelete.getAlert_information().setContentText("Delete successfully!");
                             form.getChildren().clear();
                             input.setText(null);
@@ -97,7 +97,7 @@ public class SceneEdit {
                             Optional<ButtonType> result = alertAdd.getAlert_confirm().showAndWait();
                             if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                                 try {
-                                    dictionary.editWord(list.get(0), formEdit.layoutEdit.getChangeWord());
+                                    dictionary.editWord(formEdit.getWord(), formEdit.layoutEdit.getChangeWord());
                                     alertAdd.getAlert_information().setContentText("Change successfully!");
                                     alertAdd.getAlert_information().show();
                                     form.getChildren().remove(formEdit.getLayoutEdit());
@@ -114,6 +114,23 @@ public class SceneEdit {
                     }
 
                 });
+
+                formEdit.getButtonCancel().setOnMouseClicked(event -> {
+                    form.getChildren().clear();
+                });
+
+                formEdit.getButtonNext().setOnMouseClicked(event -> {
+                    form.getChildren().clear();
+                    formEdit.nextAction();
+                    form.getChildren().add(formEdit.getLayout());
+                });
+
+                formEdit.getButtonPrevious().setOnMouseClicked(event -> {
+                    form.getChildren().clear();
+                    formEdit.previousAction();
+                    form.getChildren().add(formEdit.getLayout());
+                });
+
             } else {
                 Label noWord = new Label("NO have word " + input.getText());
                 form.getChildren().add(noWord);
