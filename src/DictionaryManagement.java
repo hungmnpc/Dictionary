@@ -127,7 +127,7 @@ public class DictionaryManagement {
                 list.add(--j);
                 return list;
             }
-            else if (dictionary.getWords().get(i).getWord_target().compareToIgnoreCase(s) < 0) {
+            else if (dictionary.getWords().get(i).getWord_target().compareTo(s) < 0) {
                 l = i + 1;
             }
             else {
