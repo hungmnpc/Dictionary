@@ -35,12 +35,12 @@ public class SceneAdd {
                         Word newWord = new Word(formAdd.getInput_new_word().getText(),
                                 formAdd.getInput_pronunciation().getText()
                                 , formAdd.getInput_word_explain().getText());
-                        if (dictionary.checkAlready(newWord)) {
+                        if (dictionary.dictionaryManagement.checkAlready(newWord)) {
                             alert.setHeaderText("Confirm add this word");
                             Optional<ButtonType> result = alert.showAndWait();
                             if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                                 try {
-                                    dictionary.insertNewWord(newWord);
+                                    dictionary.dictionaryManagement.insertNewWord(newWord);
 
                                     alert1.setContentText("Add successfully!");
                                     formAdd.setEmptyInput();

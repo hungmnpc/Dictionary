@@ -11,18 +11,18 @@ import javafx.scene.text.TextAlignment;
 import java.util.ArrayList;
 
 public class FormEdit {
-    private Button buttonEdit =  new Button();
-    private Button buttonDelete = new Button();
-    private HBox layout = new HBox();
-    private VBox layout_btn = new VBox();
+    private final Button buttonEdit =  new Button();
+    private final Button buttonDelete = new Button();
+    private final HBox layout = new HBox();
+    private final VBox layout_btn = new VBox();
     private VBox infoWord = new VBox();
-    private Label noWord = new Label();
+    private final Label noWord = new Label();
     public LayoutEdit layoutEdit;
-    private ScrollPane scroller = new ScrollPane();
-    private Button buttonCancel = new Button();
-    private Button buttonNext = new Button();
-    private Button buttonPrevious = new Button();
-    private  ArrayList<Word> list;
+    private final ScrollPane scroller = new ScrollPane();
+    private final Button buttonCancel = new Button();
+    private final Button buttonNext = new Button();
+    private final Button buttonPrevious = new Button();
+    private final ArrayList<Word> list;
     private Word word;
     private int index = 0;
 

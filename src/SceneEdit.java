@@ -62,7 +62,7 @@ public class SceneEdit {
         form.getChildren().clear();
         if (!input.getText().isEmpty()) {
             String word = input.getText();
-            ArrayList<Word> list =  dictionary.getListWordSearch(word);
+            ArrayList<Word> list =  dictionary.dictionaryManagement.getListWordSearch(word);
             if (list != null) {
                 FormEdit formEdit = new FormEdit(list);
                 form.getChildren().add(formEdit.getLayout());
@@ -71,7 +71,7 @@ public class SceneEdit {
                     Optional<ButtonType> result = alertDelete.getAlert_confirm().showAndWait();
                     if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                         try {
-                            dictionary.delete(formEdit.getWord());
+                            dictionary.dictionaryManagement.delete(formEdit.getWord());
                             alertDelete.getAlert_information().setContentText("Delete successfully!");
                             form.getChildren().clear();
                             input.setText(null);
@@ -97,7 +97,7 @@ public class SceneEdit {
                             Optional<ButtonType> result = alertAdd.getAlert_confirm().showAndWait();
                             if (result.get().getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                                 try {
-                                    dictionary.editWord(formEdit.getWord(), formEdit.layoutEdit.getChangeWord());
+                                    dictionary.dictionaryManagement.editWord(formEdit.getWord(), formEdit.layoutEdit.getChangeWord());
                                     alertAdd.getAlert_information().setContentText("Change successfully!");
                                     alertAdd.getAlert_information().show();
                                     form.getChildren().remove(formEdit.getLayoutEdit());
