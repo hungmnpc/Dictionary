@@ -112,7 +112,6 @@ public class SceneEdit {
                             }
                         });
                     }
-
                 });
 
                 formEdit.getButtonCancel().setOnMouseClicked(event -> {

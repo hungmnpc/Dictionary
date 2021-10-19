@@ -112,7 +112,6 @@ public class SceneSearch {
         layout2.getChildren().clear();
         if (!input_search.getText().isEmpty()) {
             word_search = input_search.getText();
-            System.out.println(word_search);
             ArrayList<Word> listWord = dictionary.getListWordSearch(this.word_search);
             if (listWord != null) {
                 FormSearch form = new FormSearch(listWord);

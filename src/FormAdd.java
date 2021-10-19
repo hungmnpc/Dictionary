@@ -112,11 +112,9 @@ public class FormAdd {
             if (input_pronunciation.getText().charAt(0) != '/' ) {
 
                 input_pronunciation.setText('/' + input_pronunciation.getText());
-                System.out.println(input_pronunciation.getText());
             }
             if (input_pronunciation.getText().charAt(input_pronunciation.getText().length() - 1) != '/') {
                 input_pronunciation.setText(input_pronunciation.getText() + '/');
-                System.out.println(input_pronunciation.getText());
             }
         }
     }

@@ -72,23 +72,4 @@ public class Word implements Comparable<Word> {
     public String getWord() {
         return getWord_target() + " " + getWord_pronounce() + "\n" + getWord_explain();
     }
-
-//    public static void main(String[] args) throws IOException {
-//
-//        Dictionary newList = new Dictionary();
-//
-//        Scanner scanner = new Scanner(System.in);
-//        String s = scanner.nextLine();
-//
-//        ArrayList<Integer> list = newList.dictionarySearcher(s);
-//        if (list != null) {
-//            newList.show(list.get(0), list.get(1));
-//        } else {
-//            System.out.println("Hung dbrr");
-//        }
-//
-//
-//        //newList.show();
-//    }
-
 }

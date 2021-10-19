@@ -45,7 +45,6 @@ public class DictionaryManagement {
                 s += (char) i;
             }
         }
-
         file.close();
     }
 

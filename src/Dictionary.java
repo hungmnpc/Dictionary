@@ -85,7 +85,6 @@ public class Dictionary {
             ArrayList<Word> list = new ArrayList<>();
             for (int i = a; i <= b; i++) {
                 list.add(words.get(i));
-                System.out.println(words.get(i).getWord());
             }
             return list;
         } else {
